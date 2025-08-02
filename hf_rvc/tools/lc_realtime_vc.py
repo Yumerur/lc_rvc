@@ -1,4 +1,4 @@
-
+# (c) Yumerur lisence MIT
 import math
 import time
 from os import PathLike
