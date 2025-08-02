@@ -1,3 +1,4 @@
+# (c) Yumerur license MIT
 import torch
 import torch.nn as nn
 from transformers.models.vits.modeling_vits import VitsEncoder, VitsResidualCouplingBlock
