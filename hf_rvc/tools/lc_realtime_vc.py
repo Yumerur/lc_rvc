@@ -326,7 +326,7 @@ class AGC:
 
 def openModel(file):
     from pathlib import Path
-    modelDir = Path("ModelFolder").joinpath(file)
+    modelDir = Path("models").joinpath(file)
     weight = torch.load(modelDir.joinpath("model.pth"), map_location="cpu", weights_only=True)
     with open(modelDir.joinpath("metadata.json"), "r") as f:
         config = json.load(f)
@@ -554,8 +554,6 @@ def normalize_chunk_rms(audio_chunk: np.ndarray, target_rms: float, current_rms:
 def unroll_mean(x, y, window):
     return np.repeat(x, window).reshape(-1, window).mean(axis=1)[: y.shape[0] * window]
 
-from pathlib import Path
-p = Path(__file__).parent.parent.parent / "hubert_base_hf"
 
 # Function to check if a given RVC size is achievable with the constraints
 def realtime_vc(
@@ -607,7 +605,7 @@ def realtime_vc(
         None: This function runs indefinitely until stopped manually.
     """
     print("Loading HuBERT model...")
-    hubert = HubertModel.from_pretrained(p.absolute())  # type: ignore
+    hubert = HubertModel.from_pretrained("models/hubert_base_hf")  # type: ignore
     #hubert: HubertModel = HubertModel.from_pretrained(p.absolute()) # type: ignore
     # Move model to device and set dtype
     hubert = hubert.to(device)  # type: ignore
