@@ -566,7 +566,7 @@ def realtime_vc(
     output_device_index: Optional[int] = None,
     volume: float = 1.0,
     expected_audio_level: float = 0.03,
-    device: Union[str, torch.device] = "mps",
+    device: Union[str, torch.device] = "mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else 'cpu',
     fp16: bool = True,
     noise_detection_threshold: float = 0.03,  # Threshold for noise detection
     silence_hold_time: float = 0.5,  # Time to continue processing after volume drops below threshold (seconds)
