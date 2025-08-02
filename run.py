@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # terminalの引数では設定できません。ダイレクトにこのファイルを編集してください。
-from hf_rvc.tools.realtime_vcEZ_largeContext import (
+from hf_rvc.utils.lc_realtime_vc import (
     realtime_vc, 
     list_audio_devices, 
     find_audio_device
