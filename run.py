@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # terminalの引数では設定できません。ダイレクトにこのファイルを編集してください。
 from hf_rvc.tools.realtime_vcEZ_largeContext import (
     realtime_vc, 
